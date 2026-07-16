@@ -1,155 +1,239 @@
-<div class="portfolio-container">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
+<div class="cyber-container">
+  <!-- CSS Grid Background & Spotlight Effect -->
+  <div class="perspective-grid"></div>
+  <div class="ambient-spotlight spotlight-left"></div>
+  <div class="ambient-spotlight spotlight-right"></div>
 
-  <header class="navbar">
-    <div class="logo">BK<span>.dev</span></div>
-    <nav class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#education">Education</a>
+  <!-- Top Navigation -->
+  <header class="glass-nav">
+    <div class="brand">
+      <span class="status-dot"></span>
+      <span class="brand-text">BABNEET<span>.ENGINEER</span></span>
+    </div>
+    <nav class="nav-items">
+      <a href="#about" class="nav-link">01 // About</a>
+      <a href="#skills" class="nav-link">02 // Arsenal</a>
+      <a href="#experience" class="nav-link">03 // Experience</a>
+      <a href="#projects" class="nav-link">04 // Works</a>
+      <a href="#contact" class="nav-link highlight">Hire Me</a>
     </nav>
   </header>
 
-  <section class="hero-section" id="about">
-    <div class="hero-content">
-      <div class="badge-3d">Available for Opportunities</div>
-      <h1 class="glitch-text">{{ name() }}</h1>
-      <h2 class="gradient-title">{{ title() }}</h2>
-      <p class="summary-text">{{ summary() }}</p>
-      
-      <div class="contact-bar">
-        <a [href]="'mailto:' + email()" class="contact-pill">
-          <span class="icon">📧</span> {{ email() }}
-        </a>
-        <a [href]="'tel:' + phone()" class="contact-pill">
-          <span class="icon">📱</span> {{ phone() }}
-        </a>
-        <div class="contact-pill location">
-          <span class="icon">📍</span> {{ location() }}
+  <!-- Hero Section & Bento Grid -->
+  <main class="main-content">
+    <section class="hero-bento-grid" id="about">
+      <!-- Main Intro Box -->
+      <div class="bento-card hero-intro">
+        <div class="badge-row">
+          <span class="cyber-badge"><span class="pulse-icon"></span> APRIL 2026 PROMOTION: SOFTWARE ENGINEER</span>
+          <span class="location-badge">📍 {{ location() }}</span>
+        </div>
+        <h1 class="glitch-title">{{ name() }}</h1>
+        <h2 class="role-subtitle">{{ title() }}</h2>
+        <p class="bio-text">
+          Crafting high-performance, cross-platform mobile and web applications with 
+          <strong>Angular, Ionic, and React</strong>. Leading frontend engineering for intelligent consumer systems like the 
+          <strong>Aahar App</strong>—seamlessly integrating Enterprise AI APIs with pixel-perfect responsive architectures.
+        </p>
+        <div class="action-buttons">
+          <a [href]="'mailto:' + email()" class="cyber-button primary">
+            <span>Get In Touch</span>
+            <svg viewBox="0 0 24 24" class="icon"><path fill="currentColor" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <a href="#projects" class="cyber-button secondary">Explore Works</a>
         </div>
       </div>
-    </div>
 
-    <div class="hero-visual">
-      <div class="card-3d-wrapper">
-        <div class="card-3d">
-          <div class="card-face card-front">
-            <div class="card-chip"></div>
-            <div class="card-logo">Angular • Ionic • React</div>
-            <div class="card-details">
-              <span>Frontend Developer</span>
-              <h3>Babneet Kaur</h3>
-            </div>
-            <div class="card-glow"></div>
+      <!-- Quick Contact Bento Box -->
+      <div class="bento-card contact-box">
+        <div class="box-header">DIRECT TELEMETRY</div>
+        <div class="contact-methods">
+          <a [href]="'mailto:' + email()" class="contact-row">
+            <span class="label">EMAIL //</span>
+            <span class="value">{{ email() }}</span>
+          </a>
+          <a [href]="'tel:' + phone()" class="contact-row">
+            <span class="label">PHONE //</span>
+            <span class="value">{{ phone() }}</span>
+          </a>
+          <div class="contact-row">
+            <span class="label">STATUS //</span>
+            <span class="value success">Software Engineer @ Niwiai</span>
           </div>
         </div>
+        <div class="hologram-effect"></div>
       </div>
-    </div>
-  </section>
 
-  <section class="section skills-section" id="skills">
-    <div class="section-header">
-      <h2>Technical Arsenal</h2>
-      <div class="header-line"></div>
-    </div>
-    
-    <div class="skills-grid">
-      @for (group of skillCategories(); track group.category) {
-        <div class="skill-card-3d">
-          <h3>{{ group.category }}</h3>
-          <div class="pill-container">
-            @for (skill of group.skills; track skill) {
-              <span class="skill-pill">{{ skill }}</span>
-            }
-          </div>
+      <!-- Impact Metrics Bento Boxes -->
+      @for (metric of metrics(); track metric.label) {
+        <div class="bento-card metric-box" [style.--accent]="metric.accent">
+          <div class="metric-glow"></div>
+          <div class="metric-value">{{ metric.value }}</div>
+          <div class="metric-label">{{ metric.label }}</div>
         </div>
       }
-    </div>
-  </section>
+    </section>
 
-  <section class="section experience-section" id="experience">
-    <div class="section-header">
-      <h2>Professional Journey</h2>
-      <div class="header-line"></div>
-    </div>
+    <!-- Technical Arsenal Section -->
+    <section class="section skills-section" id="skills">
+      <div class="section-title">
+        <span class="number">02 //</span>
+        <h2>Technical Arsenal & Mastery</h2>
+        <div class="line-decorator"></div>
+      </div>
 
-    <div class="timeline">
-      @for (exp of experiences(); track exp.role) {
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="experience-card-3d">
-            <div class="exp-header">
-              <div>
-                <h3>{{ exp.role }}</h3>
-                <h4>{{ exp.company }} • <span class="location-tag">{{ exp.location }}</span></h4>
+      <div class="skills-bento-grid">
+        @for (skill of coreSkills(); track skill.name) {
+          <div class="skill-card" [style.--skill-color]="skill.color">
+            <div class="skill-top">
+              <span class="skill-name">{{ skill.name }}</span>
+              <span class="skill-category">{{ skill.category }}</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-bar" [style.width]="skill.level"></div>
+            </div>
+            <div class="skill-level-text">{{ skill.level }} Proficiency</div>
+            <div class="card-border-gradient"></div>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Professional Timeline Section -->
+    <section class="section experience-section" id="experience">
+      <div class="section-title">
+        <span class="number">03 //</span>
+        <h2>Professional Track Record</h2>
+        <div class="line-decorator"></div>
+      </div>
+
+      <div class="cyber-timeline">
+        @for (exp of experiences(); track exp.role) {
+          <div class="timeline-node">
+            <div class="node-marker">
+              <div class="inner-core"></div>
+            </div>
+            <div class="node-content">
+              <div class="node-header">
+                <div class="title-area">
+                  <h3>{{ exp.role }}</h3>
+                  <h4>{{ exp.company }} <span class="loc">// {{ exp.location }}</span></h4>
+                </div>
+                <span class="period-pill">{{ exp.period }}</span>
               </div>
-              <span class="period-badge">{{ exp.period }}</span>
+
+              @if (exp.badge) {
+                <div class="trophy-banner">
+                  <span class="trophy-glow"></span>
+                  {{ exp.badge }}
+                </div>
+              }
+
+              <ul class="highlight-list">
+                @for (item of exp.highlights; track item) {
+                  <li>
+                    <span class="bullet-arrow">▹</span>
+                    <span>{{ item }}</span>
+                  </li>
+                }
+              </ul>
             </div>
-            
-            @if (exp.badge) {
-              <div class="achievement-badge">🏆 {{ exp.badge }}</div>
-            }
-
-            <ul class="exp-highlights">
-              @for (item of exp.highlights; track item) {
-                <li>{{ item }}</li>
-              }
-            </ul>
           </div>
-        </div>
-      }
-    </div>
-  </section>
+        }
+      </div>
+    </section>
 
-  <section class="section projects-section" id="projects">
-    <div class="section-header">
-      <h2>Featured Projects</h2>
-      <div class="header-line"></div>
-    </div>
+    <!-- Featured Projects Section -->
+    <section class="section projects-section" id="projects">
+      <div class="section-title">
+        <span class="number">04 //</span>
+        <h2>Featured Architecture & Works</h2>
+        <div class="line-decorator"></div>
+      </div>
 
-    <div class="projects-grid">
-      @for (project of projects(); track project.title) {
-        <div class="project-card-3d">
-          <div class="project-icon">{{ project.icon }}</div>
-          <div class="project-content">
-            <span class="tech-tag">{{ project.tech }}</span>
-            <h3>{{ project.title }}</h3>
-            <ul>
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        @for (category of projectCategories(); track category) {
+          <button 
+            class="tab-btn" 
+            [class.active]="selectedCategory() === category"
+            (click)="setFilter(category)">
+            {{ category }}
+          </button>
+        }
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid">
+        @for (project of filteredProjects(); track project.title) {
+          <div class="project-card" [style.--project-accent]="project.accentColor">
+            <div class="card-glow-bg"></div>
+            <div class="project-top">
+              <div class="project-icon-box">
+                <svg viewBox="0 0 24 24" class="svg-icon">
+                  <path fill="currentColor" [attr.d]="project.iconSvg"/>
+                </svg>
+              </div>
+              <span class="category-tag">{{ project.category }}</span>
+            </div>
+
+            <h3 class="project-title">{{ project.title }}</h3>
+
+            <div class="tech-stack">
+              @for (tech of project.tech; track tech) {
+                <span class="tech-badge">{{ tech }}</span>
+              }
+            </div>
+
+            <div class="project-description">
               @for (desc of project.description; track desc) {
-                <li>{{ desc }}</li>
+                <p>▹ {{ desc }}</p>
               }
-            </ul>
+            </div>
+            <div class="card-interactive-border"></div>
           </div>
-          <div class="card-border-glow"></div>
-        </div>
-      }
-    </div>
-  </section>
+        }
+      </div>
+    </section>
 
-  <section class="section education-section" id="education">
-    <div class="section-header">
-      <h2>Education & Certifications</h2>
-      <div class="header-line"></div>
-    </div>
+    <!-- Education Section -->
+    <section class="section education-section">
+      <div class="section-title">
+        <span class="number">05 //</span>
+        <h2>Academic Credentials</h2>
+        <div class="line-decorator"></div>
+      </div>
 
-    <div class="education-grid">
-      @for (edu of education(); track edu.degree) {
-        <div class="edu-card-3d">
-          <div class="edu-year">{{ edu.year }}</div>
-          <h3>{{ edu.degree }}</h3>
-          <h4>{{ edu.institution }}</h4>
-          <p>📍 {{ edu.location }}</p>
-        </div>
-      }
-    </div>
-  </section>
+      <div class="education-grid">
+        @for (edu of education(); track edu.degree) {
+          <div class="edu-card">
+            <span class="edu-badge">{{ edu.badge }}</span>
+            <div class="edu-year">{{ edu.year }}</div>
+            <h3>{{ edu.degree }}</h3>
+            <h4>{{ edu.institution }}</h4>
+            @if (edu.score) {
+              <div class="score-highlight">⚡ {{ edu.score }}</div>
+            }
+          </div>
+        }
+      </div>
+    </section>
+  </main>
 
-  <footer class="footer">
-    <p>Designed & Built by <span>Babneet Kaur</span> • Powered by Angular 18</p>
+  <!-- Cyber Footer -->
+  <footer class="cyber-footer" id="contact">
+    <div class="footer-content">
+      <div class="footer-left">
+        <div class="brand">BABNEET<span>.ENGINEER</span></div>
+        <p>Built with Angular 18 Standalone Architecture & Pure CSS Mint-Navy Matrix Styling.</p>
+      </div>
+      <div class="footer-right">
+        <a [href]="'mailto:' + email()" class="footer-link">Email</a>
+        <a [href]="'tel:' + phone()" class="footer-link">Phone</a>
+        <a href="https://linkedin.com" target="_blank" class="footer-link">LinkedIn</a>
+      </div>
+    </div>
+    <div class="copyright">© 2026 Babneet Kaur. All rights reserved.</div>
   </footer>
 </div>
 
